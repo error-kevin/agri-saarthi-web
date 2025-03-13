@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# AgriSaarthi - Empowering Farmers with AI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**AgriSaarthi** is a mobile/web application designed to empower small and marginal farmers by providing personalized, AI-driven agricultural advisory, skill development resources, and market linkages. Addressing climate change impacts and resource constraints is at the core of AgriSaarthi's mission.
 
-## Available Scripts
+## Key Features
 
-In the project directory, you can run:
+### 1. AI-Powered Crop Advisory
 
-### `npm start`
+* **Weather Forecasting & Alerts:**
+    * Integrates real-time weather data and AI-powered forecasting.
+    * Provides localized weather alerts (rainfall, temperature, humidity) to aid in activity planning.
+* **Soil Health Analysis:**
+    * Utilizes remote sensing and AI to analyze soil health from satellite imagery and user inputs.
+    * Offers recommendations for soil amendments and sustainable practices.
+* **Pest and Disease Detection:**
+    * Implements image recognition and machine learning for identifying pests and diseases through smartphone photos.
+    * Provides AI-driven prevention and treatment recommendations.
+* **Crop Selection & Planning:**
+    * Analyzes historical data, weather patterns, and soil conditions to recommend suitable crops and optimal planting schedules.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. Skill Development & Training
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **Digital Learning Modules:**
+    * Integrates video tutorials, interactive modules, and voice-based assistance.
+    * Covers topics like sustainable farming, water management, and modern technology usage.
+* **Localized Content:**
+    * Provides content in local languages for enhanced accessibility.
+* **"Ask an Expert" Feature:**
+    * Connects farmers with agricultural experts through in-app chat or voice calls.
+* **Agri-Tech Hub & Mobile Agri-Tech Van Integration:**
+    * Provides information on locations and schedules of these resources within the app.
 
-### `npm test`
+### 3. Market Linkages & Financial Inclusion
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Market Price Information:**
+    * Provides real-time market prices for crops, connecting farmers with potential buyers.
+* **Input Supplier Directory:**
+    * Creates a directory of reliable input suppliers (seeds, fertilizers, equipment).
+* **Financial Literacy & Access:**
+    * Integrates information on government schemes, loan options, and financial literacy resources.
+* **Farmer to Farmer Network:**
+    * Implements a forum for farmers to communicate, and share knowledge.
 
-### `npm run build`
+### 4. Data Collection & Analysis
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* **User-Generated Data:**
+    * Collects data on crop yields, soil conditions, and farming practices through the app.
+* **Data Analytics:**
+    * Uses data analytics to identify trends, patterns, and areas for improvement.
+* **Feedback Mechanism:**
+    * Implements a feedback mechanism to gather user input and improve the app's functionality.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used (Example - To be filled with real tech stack)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **Frontend:** React Native (Mobile), React.js (Web)
+* **Backend:** Node.js, Python (for AI/ML)
+* **Database:** PostgreSQL, MongoDB
+* **AI/ML:** TensorFlow, PyTorch, Scikit-learn
+* **Cloud Services:** AWS, Google Cloud Platform, or Azure.
+* **Mapping/GIS:** Leaflet, Google Maps API
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contributing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Contributions are welcome! Please follow these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1.  Fork the repository.
+2.  Create a new branch for your feature or bug fix.
+3.  Make your changes and commit them.
+4.  Push your changes to your fork.
+5.  Submit a pull request.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Project Status
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* In Development
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contact
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Triosync [Keshav Joshi, Khushi Raghuwanshi, Urvashi Sharma]
+* keshav123joshi@gmail.com
