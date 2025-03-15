@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./SoilMoisture.css"; // Import the CSS file
+import "./../styles/SoilMoisture.css"; // Import the CSS file
 
 const SoilMoisture = () => {
   const [soilData, setSoilData] = useState(null);

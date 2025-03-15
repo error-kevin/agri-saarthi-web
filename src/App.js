@@ -73,7 +73,7 @@ function App() {
         <Route path="/contact" element={<h2>Contact Us</h2>} />
       </Routes>
     </Router>
-      <h1>Agri-Saarthi</h1>
+      {/* <h1>Agri-Saarthi</h1> */}
       {/* <Auth /> */}
       <Weather />
       <SoilMoisture />
