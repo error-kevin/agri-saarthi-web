@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import api from "./api";
 import Weather from "./components/weather";
-import Auth from "./auth";
+import Auth from "./components/auth";
 import WeatherCard from "./components/WeatherCard";
 import SoilMoisture from "./components/SoilMoisture";
 
