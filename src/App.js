@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import api from "./api";
-import Weather from "./weather";
+import Weather from "./components/weather";
 import Auth from "./auth";
-import WeatherCard from "./WeatherCard";
+import WeatherCard from "./components/WeatherCard";
+import SoilMoisture from "./components/SoilMoisture";
 
 api.get("/api/hello")
   .then(response => console.log(response.data))
@@ -63,6 +64,7 @@ function App() {
       <h1>Agri-Saarthi</h1>
       <Auth />
       <Weather />
+      <SoilMoisture />
       <p>{message}</p>
       {/* {error && <p>Error: {error}</p>} */}
       {weatherData && <WeatherCard weatherData={weatherData} />}

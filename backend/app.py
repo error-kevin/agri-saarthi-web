@@ -42,6 +42,48 @@ def get_weather():
 
 #Soil data 
 
+# Initialize Earth Engine (ensure authentication is done)
+PROJECT_ID = "agri-saarthi"  # Replace with your actual project ID
+
+try:
+    ee.Initialize(project=PROJECT_ID)
+    print("Google Earth Engine Initialized Successfully!")
+except Exception as e:
+    print(f"Error initializing Earth Engine: {e}")
+
+def get_soil_moisture(lat, lon):
+    try:
+        point = ee.Geometry.Point(lon, lat)
+        soil_data = ee.ImageCollection('NASA/SMAP/SPL4SMGP/007') \
+        .filterDate('2023-01-01', '2023-01-10') \
+        .filterBounds(point) \
+        .mean() \
+        .reduceRegion(ee.Reducer.mean(), point, 1000) \
+        .getInfo()
+        
+        # Extract relevant soil moisture values
+        filtered_data = {
+            "latitude": lat,
+            "longitude": lon,
+            "soil_moisture_surface": soil_data.get("sm_surface"),
+            "soil_moisture_rootzone": soil_data.get("sm_rootzone"),
+            "soil_moisture_profile": soil_data.get("sm_profile")
+        }
+        return filtered_data
+        print(get_soil_moisture(22.7196, 75.8577))  # Test with Indore location
+
+    except Exception as e:
+        return str(e)
+
+@app.route('/soil-moisture', methods=['GET'])
+def soil_moisture_api():
+    lat = request.args.get('lat', type=float)
+    lon = request.args.get('lon', type=float)
+    if lat is None or lon is None:
+        return jsonify({'error': 'Missing latitude or longitude'}), 400
+
+    moisture = get_soil_moisture(lat, lon)
+    return jsonify({'latitude': lat, 'longitude': lon, 'soil_moisture': moisture})
 
 # ee.Initialize()
 

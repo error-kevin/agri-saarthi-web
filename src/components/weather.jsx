@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import axios from "axios";
+import WeatherCard from "./WeatherCard";
+import "./Weather.css"; // Importing CSS
 
 const Weather = () => {
     const [weather, setWeather] = useState(null);
@@ -8,7 +10,9 @@ const Weather = () => {
     useEffect(() => {
         const fetchWeather = async (lat, lon) => {
             try {
-                const response = await axios.get(`http://127.0.0.1:5000/weather?lat=${lat}&lon=${lon}`);
+                const response = await axios.get(
+                    `http://127.0.0.1:5000/weather?lat=${lat}&lon=${lon}`
+                );
                 setWeather(response.data);
             } catch (err) {
                 setError("Could not fetch weather data. Please try again.");
@@ -35,21 +39,12 @@ const Weather = () => {
     }, []);
 
     return (
-        <div>
+        <div className="weather-container">
             <h2>Weather Information</h2>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            {weather && (
-                <div>
-                    <h3>{weather.city}</h3>
-                    <p>Temperature: {weather.temperature}°C</p>
-                    <p>Condition: {weather.description}</p>
-                    <p>Humidity: {weather.humidity}%</p>
-                    <p>Wind Speed: {weather.wind_speed} m/s</p>
-                </div>
-            )}
+            {error && <p className="error-message">{error}</p>}
+            {weather && <WeatherCard weatherData={weather} />}
         </div>
     );
 };
-
 
 export default Weather;

@@ -1,0 +1,31 @@
+.soil-moisture-container {
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .soil-moisture-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    margin: auto;
+    background-color: #f5f5f5;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .soil-moisture-box p {
+    font-size: 16px;
+    margin: 8px 0;
+  }
+  
+  .soil-moisture-box strong {
+    color: #2c3e50;
+  }
+  
+  .loading {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e67e22;
+  }
+  
