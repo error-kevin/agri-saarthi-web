@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { auth, db } from "../firebase";
+import { useNavigate } from "react-router-dom"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"; // ✅ Import here
 import { doc, setDoc } from "firebase/firestore";
 import "./../styles/Auth.css";
@@ -10,6 +11,7 @@ const Auth = () => {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const [isSignUp, setIsSignUp] = useState(true);
+  const navigate = useNavigate();
 
   const handleAuth = async (e) => {
     e.preventDefault();
@@ -34,14 +36,16 @@ const Auth = () => {
           });
 
           alert("User signed up and stored in Firestore!");
+          navigate("/dashboard"); // Redirect to dashboard after signup
         }, (error) => {
           setError("Geolocation error: " + error.message);
         });
 
       } else {
-        
+        // Login Logic
         await signInWithEmailAndPassword(auth, email, password);
         alert("User logged in successfully!");
+        navigate("/dashboard"); // Redirect to dashboard after login
       }
     } catch (err) {
       setError(err.message);
