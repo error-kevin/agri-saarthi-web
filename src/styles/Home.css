@@ -1,0 +1,110 @@
+/* General Page Styles */
+.home-container {
+    min-height: 100vh;
+    background-color: #f0fdf4; /* Light green background */
+    color: #2d3748; /* Dark gray text */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #047857; /* Dark green */
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.hero .cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: white;
+    color: #047857;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.hero .cta-button:hover {
+    background-color: #d1fae5; /* Light green on hover */
+}
+
+/* Features Section */
+.features {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: #4a5568;
+    margin-top: 10px;
+}
+/* Sign Up / Login Button */
+.signup-button {
+    background: linear-gradient(135deg, #34D399, #059669); /* Gradient Green */
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect */
+.signup-button:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: scale(1.05);
+}
+
+/* Active/Click Effect */
+.signup-button:active {
+    transform: scale(0.98);
+    box-shadow: none;
+}

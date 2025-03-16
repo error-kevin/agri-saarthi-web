@@ -1,17 +1,46 @@
-function Home() {
-    return (
-      <div style={{ textAlign: "center", padding: "20px" }}>
-        <h2>Welcome to AgriSaarthi 🚜</h2>
-        <p>AI-driven solutions for farmers to improve productivity and market access.</p>
-        <img src="https://media.istockphoto.com/id/116632476/photo/old-farmhouse.jpg?s=2048x2048&w=is&k=20&c=OuhlQ8bNb2PUZkKZEaw2-0gJlBrfh-6prKzAm1-3VXA=" alt="Agriculture" />
-        <br /><br />
-        <button style={{ padding: "10px 20px", fontSize: "16px", backgroundColor: "#4CAF50", color: "white", border: "none", cursor: "pointer" }}>
-          Get Started
-        </button>
-      </div>
-    );
-  }
-  
-  export default Home;
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./../styles/Home.css"; // Import CSS
 
-  
+const Home = () => {
+  const navigate = useNavigate(); //  React Router navigation
+  return (
+    <div className="home-container">
+      {/* Hero Section */}
+      <header className="hero">
+        <h1>Welcome to Agri-Saarthi</h1>
+        <p>Smart Farming Made Easy with AI & Data</p>
+        <button className="signup-button" onClick={() => navigate("/auth")}>
+        Sign Up / Login
+      </button>
+      </header>
+
+      {/* Features Section */}
+      <section className="features">
+        <h2>Key Features</h2>
+        <div className="features-container">
+          {/* Feature 1: Weather & Soil Data */}
+          <div className="feature-card">
+            <h3>🌤️ Weather & Soil Data</h3>
+            <p>Get real-time weather & soil moisture data for your farm.</p>
+          </div>
+
+          {/* Feature 2: AI Pest Detection */}
+          <div className="feature-card">
+            <h3>🔍 AI Pest Detection</h3>
+            <p>Upload images to detect pests and get treatment suggestions.</p>
+          </div>
+
+          {/* Feature 3: Market Prices */}
+          <div className="feature-card">
+            <h3>📊 Market Prices</h3>
+            <p>Get the latest crop prices and market trends.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
