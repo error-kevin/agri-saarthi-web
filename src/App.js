@@ -8,6 +8,9 @@ import WeatherCard from "./components/WeatherCard";
 import SoilMoisture from "./components/SoilMoisture";
 import Home from "./components/Home";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Dashboard from "./components/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 
 api.get("/api/hello")
@@ -70,18 +73,38 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<h2>About AgriSaarthi</h2>} />
-        <Route path="/contact" element={<h2>Contact Us</h2>} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/Weather" element={<WeatherSoil />} />
+        <Route 
+          path="/dashboard" 
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
       </Routes>
+      <Footer />
     </Router>
       {/* <h1>Agri-Saarthi</h1> */}
       {/* <Auth /> */}
-      <Weather />
-      <SoilMoisture />
+      {/* <Weather />
+      <SoilMoisture /> */}
       <p>{message}</p>
       {/* {error && <p>Error: {error}</p>} */}
       {weatherData && <WeatherCard weatherData={weatherData} />}
     </div>
   );
 }
+
+function WeatherSoil() {
+  return (
+    <div>
+      <Weather />
+      <SoilMoisture />
+    </div>
+  );
+}
+
 
 export default App;
