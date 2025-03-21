@@ -23,7 +23,9 @@ const Footer = () => {
         <div className="footer-section">
           <h3>📜 Terms & Privacy</h3>
           <Link to="/terms">Terms of Service</Link>
+          <br />
           <Link to="/privacy">Privacy Policy</Link>
+          <br />
           <Link to="/faqs">FAQs</Link>
         </div>
 
