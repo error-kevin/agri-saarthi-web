@@ -2,53 +2,53 @@
 .about-container {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(145deg, #1d1d1d, #333333); /* Smooth gradient background */
-  color: #f0f0f0; /* Light text */
+  background: linear-gradient(145deg, white);
+  color:black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Arial', sans-serif; /* More readable font */
+  font-family: 'Arial', sans-serif;
 }
 
 /* Heading */
 .about-container h1 {
   font-size: 3rem;
-  color: #00bcd4; /* Teal accent */
+  color:black;
   margin-bottom: 40px;
-  text-transform: uppercase; /* Uppercase for a stronger look */
-  letter-spacing: 2px; /* Letter spacing to enhance readability */
+  text-transform: uppercase;
+  letter-spacing: 2px;
   font-weight: bold;
 }
 
 /* Team Section */
 .team-container {
   display: flex;
-  justify-content: space-around; /* Evenly space out the cards */
-  flex-wrap: wrap; /* Wrap the cards on smaller screens */
-  gap: 30px; /* Add spacing between the cards */
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
   margin-top: 30px;
 }
 
 /* Team Member Card */
 .team-member {
-  background: #444444; /* Dark card background */
+  background: #2d6a4f;
   padding: 30px;
   border-radius: 20px;
-  width: 280px; /* Fixed width for consistency */
+  width: 280px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Stronger shadow for depth */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin-top: 20px;
-  background-color: rgba(255, 255, 255, 0.05); /* Slight transparency for a modern look */
+  background-color:#2d6a4f(255, 255, 255, 0.05);
 }
 
 /* Hover Effect on Cards */
 .team-member:hover {
-  transform: translateY(-10px); /* Lift the card up */
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7); /* Stronger shadow on hover */
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
 }
 
 /* Profile Image */
@@ -57,33 +57,51 @@
   height: 130px;
   border-radius: 50%;
   margin-bottom: 20px;
-  border: 5px solid #00bcd4; /* Teal border around image */
+  border: 5px solid #ffffff;
 }
 
 /* Name */
 .team-member h3 {
   font-size: 2rem;
-  color: #00bcd4; /* Teal accent */
+  color: #ffffff;
   margin-bottom: 10px;
-  font-weight: 600; /* Slightly bolder font for name */
+  font-weight: 600;
 }
 
-/* Role & Description */
+/* Role */
 .team-member p {
   font-size: 1.1rem;
-  color: #bbbbbb; /* Lighter text for role and description */
+  color: #ffffff;
   line-height: 1.6;
   margin-bottom: 10px;
 }
 
-/* Responsive Design (Mobile) */
+/* Social Links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease-in-out, color 0.2s;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+  color: #00bcd4;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .team-container {
-    flex-direction: column; /* Stack the cards vertically on mobile */
+    flex-direction: column;
     align-items: center;
   }
   .team-member {
-    width: 85%; /* Make cards take up more space on mobile */
+    width: 85%;
   }
 }
-
