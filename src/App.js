@@ -7,6 +7,7 @@ import Auth from "./components/auth";
 import WeatherCard from "./components/WeatherCard";
 import SoilMoisture from "./components/SoilMoisture";
 import Home from "./components/Home";
+import About from "./components/About";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard";
@@ -72,7 +73,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<h2>About AgriSaarthi</h2>} />
+        <Route path="/about" element={<About />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/Weather" element={<WeatherSoil />} />
         <Route 
