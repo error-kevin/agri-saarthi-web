@@ -53,7 +53,7 @@ nav ul li a:hover {
 
 .signup-button,
 .logout-btn {
-  background-color: #ff9800;
+  background: linear-gradient(135deg, #34D399, #248d4a);
   border: none;
   color: white;
   padding: 10px 18px;
@@ -66,7 +66,7 @@ nav ul li a:hover {
 }
 
 .signup-button:hover {
-  background-color: #e68900;
+  background-color: #089254;
   transform: scale(1.05);
 }
 
