@@ -9,7 +9,7 @@ const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Check if user is logged in
+  // Check if the user is logged in
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       setUser(currentUser);
@@ -31,13 +31,27 @@ const Header = () => {
       <div className="logo">
         <Link to="/">Agri-Saarthi</Link>
       </div>
+
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
-          {user ? ( // If user is logged in, show dashboard links
-            <><div className="profile-menu">
-            <FaUserCircle className="profile-icon" onClick={() => setDropdownOpen(!dropdownOpen)} />
+          <li><Link to="/market">Market</Link></li>
+          <li><Link to="/weather">Weather</Link></li>
+
+          {/* Show "Dashboard" only when user is logged in */}
+          {user && (
+            <li><Link to="/dashboard">Dashboard</Link></li>
+          )}
+        </ul>
+
+        {/* Show profile icon only when user is logged in */}
+        {user ? (
+          <div className="profile-menu">
+            <FaUserCircle 
+              className="profile-icon" 
+              onClick={() => setDropdownOpen(!dropdownOpen)} 
+            />
             {dropdownOpen && (
               <div className="dropdown">
                 <Link to="/profile">Profile</Link>
@@ -45,21 +59,13 @@ const Header = () => {
               </div>
             )}
           </div>
-              <li><Link to="/market">Market</Link></li>
-              <li><Link to="/weather">Weather</Link></li>
-              <li><Link to="/dashboard">Dashboard</Link></li>
-              
-              {/* <li><Link to="/profile">Profile</Link></li>
-              <button className="logout-btn" onClick={handleLogout}>Logout</button> */}
-            </>
-          ) : ( // If no user, show Sign Up / Login button
-             <div className="nav-buttons">
-              <button className="signup-button" onClick={() => navigate("/auth")}>
-                Sign Up / Login
-              </button>
-              </div>
-          )}
-        </ul>
+        ) : (
+          <div className="nav-buttons">
+            <button className="signup-button" onClick={() => navigate("/auth")}>
+              Sign Up / Login
+            </button>
+          </div>
+        )}
       </nav>
     </header>
   );
