@@ -2,18 +2,19 @@ import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import "../styles/About.css";
+import "../assets/myphoto.png"
 
 const teamMembers = [
   {
-    name: "Member 1",
-    role: "AI Developer",
+    name: "Keshav Joshi",
+    role: "AI Developer & FullStack Developer",
     image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZmVzc2lvbmFsfGVufDB8fDB8fHww",
     github: "https://github.com/member1",
     linkedin: "https://linkedin.com/in/member1",
     twitter: "https://twitter.com/member1",
   },
   {
-    name: "Member 2",
+    name: "Khushi Raghuwanshi",
     role: "Frontend Developer",
     image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZmVzc2lvbmFsfGVufDB8fDB8fHww",
     github: "https://github.com/member2",
@@ -21,7 +22,7 @@ const teamMembers = [
     twitter: "https://twitter.com/member2",
   },
   {
-    name: "Member 3",
+    name: "Urvashi Sharma",
     role: "Backend Developer",
     image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZmVzc2lvbmFsfGVufDB8fDB8fHww",
     github: "https://github.com/member3",
