@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
-import { FaUserCircle } from "react-icons/fa"; // Import user icon
+import { FaUserCircle, FaBars, FaTimes } from "react-icons/fa"; // Import burger and close icons
 import "../styles/Header.css";
 
 const Header = () => {
   const [user, setUser] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);  // State for burger menu
   const navigate = useNavigate();
 
   // Check if the user is logged in
@@ -32,16 +33,22 @@ const Header = () => {
         <Link to="/">Agri-Saarthi</Link>
       </div>
 
-      <nav>
+      {/* Burger Menu Icon */}
+      <div className="burger-menu" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+
+      {/* Navigation Menu */}
+      <nav className={menuOpen ? "open" : ""}>
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/market">Market</Link></li>
-          <li><Link to="/weather">Weather</Link></li>
+          <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+          <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
+          <li><Link to="/market" onClick={() => setMenuOpen(false)}>Market</Link></li>
+          <li><Link to="/weather" onClick={() => setMenuOpen(false)}>Weather</Link></li>
 
           {/* Show "Dashboard" only when user is logged in */}
           {user && (
-            <li><Link to="/dashboard">Dashboard</Link></li>
+            <li><Link to="/dashboard" onClick={() => setMenuOpen(false)}>Dashboard</Link></li>
           )}
         </ul>
 
@@ -54,7 +61,7 @@ const Header = () => {
             />
             {dropdownOpen && (
               <div className="dropdown">
-                <Link to="/profile">Profile</Link>
+                <Link to="/profile" onClick={() => setMenuOpen(false)}>Profile</Link>
                 <button onClick={handleLogout}>Sign Out</button>
               </div>
             )}

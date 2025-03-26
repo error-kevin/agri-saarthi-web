@@ -15,11 +15,11 @@ const Home = () => {
     return () => unsubscribe();
   }, []);
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (path) => {
     if (user) {
-      navigate("/dashboard");  // Navigate to dashboard if logged in
+      navigate(path);  // Navigate to specified path if logged in
     } else {
-      navigate("/auth");       // Navigate to auth if not logged in
+      navigate("/auth");  // Navigate to authentication page if not logged in
     }
   };
 
@@ -31,7 +31,7 @@ const Home = () => {
         <p>Smart Farming Made Easy with AI & Data</p>
         <button 
           className="signup-button" 
-          onClick={handleButtonClick}
+          onClick={() => handleButtonClick("/dashboard")}
         >
           {user ? "Get Started" : "Sign Up / Login"}
         </button>
@@ -41,17 +41,17 @@ const Home = () => {
       <section className="features">
         <h2>Key Features</h2>
         <div className="features-container">
-          <div className="feature-card">
+          <div className="feature-card" onClick={() => handleButtonClick("/weather")}>
             <h3>🌤️ Weather & Soil Data</h3>
             <p>Get real-time weather & soil moisture data for your farm.</p>
           </div>
 
-          <div className="feature-card">
+          <div className="feature-card" onClick={() => handleButtonClick("/pest-detection")}>
             <h3>🔍 AI Pest Detection</h3>
             <p>Upload images to detect pests and get treatment suggestions.</p>
           </div>
 
-          <div className="feature-card">
+          <div className="feature-card" onClick={() => handleButtonClick("/market")}>
             <h3>📊 Market Prices</h3>
             <p>Get the latest crop prices and market trends.</p>
           </div>
