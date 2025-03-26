@@ -35,7 +35,7 @@ const Auth = () => {
             location,
           });
 
-          alert("User signed up and stored in Firestore!");
+          // alert("User signed up and stored in Firestore!");
           navigate("/dashboard"); // Redirect to dashboard after signup
         }, (error) => {
           setError("Geolocation error: " + error.message);
