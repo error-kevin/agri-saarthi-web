@@ -44,7 +44,7 @@ const Auth = () => {
       } else {
         // Login Logic
         await signInWithEmailAndPassword(auth, email, password);
-        alert("User logged in successfully!");
+        // alert("User logged in successfully!");
         navigate("/dashboard"); // Redirect to dashboard after login
       }
     } catch (err) {

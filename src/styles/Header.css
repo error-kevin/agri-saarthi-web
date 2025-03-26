@@ -5,7 +5,7 @@
   align-items: center;
   background-color: #2d6a4f;
   padding: 15px 40px;
-  box-shadow: black 5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   color: white;
   position: sticky;
   top: 0;
@@ -21,6 +21,13 @@
 }
 
 /* Navigation Styling */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Navigation list */
 nav ul {
   list-style: none;
   display: flex;
@@ -30,6 +37,7 @@ nav ul {
   padding: 0;
 }
 
+/* Navigation items */
 nav ul li {
   display: inline;
 }
@@ -78,12 +86,12 @@ nav ul li a:hover {
   background-color: #c9302c;
 }
 
-
 /* Profile Icon & Dropdown */
 .profile-menu {
   position: relative;
+  align-items: center;
   margin-left: auto;
-  display: inline-block;
+  display: flex;
 }
 
 .profile-icon {
@@ -99,16 +107,17 @@ nav ul li a:hover {
 
 .dropdown {
   position: absolute;
-  top: 40px;
+  top: 50px;
   right: 0;
   background-color: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
-  width: 120px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   text-align: center;
+  z-index: 999;
 }
 
 .dropdown a,
@@ -126,4 +135,50 @@ nav ul li a:hover {
 .dropdown button:hover,
 .dropdown a:hover {
   background-color: #a7f3d0;
+}
+
+/* ✅ Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: left;
+  }
+
+  .profile-menu {
+    justify-content: flex-end;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .profile-icon {
+    font-size: 1.5rem;
+  }
+
+  .dropdown {
+    width: 100%;
+    right: 0;
+  }
+
+  .signup-button, .logout-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
