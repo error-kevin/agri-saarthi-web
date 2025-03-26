@@ -137,39 +137,52 @@ nav ul li a:hover {
   background-color: #a7f3d0;
 }
 
+/* ✅ Burger Menu */
+.burger-menu {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
 /* ✅ Mobile Responsiveness */
 @media screen and (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    padding: 15px 20px;
+  .burger-menu {
+    display: block;
   }
 
   nav {
+    display: none;
     flex-direction: column;
-    gap: 15px;
+    position: absolute;
+    top: 70px;
+    left: 0;
     width: 100%;
-    align-items: flex-start;
+    background: #2d6a4f;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transition: all 0.3s ease;
+  }
+
+  nav.open {
+    display: flex;
   }
 
   nav ul {
     flex-direction: column;
     gap: 15px;
     width: 100%;
+    align-items: center;
   }
 
   nav ul li {
     width: 100%;
-    text-align: left;
+    text-align: center;
   }
 
   .profile-menu {
-    justify-content: flex-end;
-    margin-left: 0;
+    justify-content: center;
     width: 100%;
-  }
-
-  .profile-icon {
-    font-size: 1.5rem;
   }
 
   .dropdown {
