@@ -14,6 +14,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Profile from "./components/Profile";
+import Market from "./components/Market";
 
 
 api.get("/api/hello")
@@ -78,7 +80,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/Weather" element={<WeatherSoil />} />
+        <Route path="/market-prices" element={<Market />} />
         <Route path="/pest-detection" element={<PestDetection />} />
+        <Route path="/profile" element={<Profile />} />
         <Route 
           path="/dashboard" 
           element={

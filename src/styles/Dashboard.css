@@ -1,32 +1,149 @@
+/* Dashboard Container */
 .dashboard-container {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
   text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
   background: #f4f4f4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 40px;
 }
 
+/* Header */
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   /* color: #2d6a4f; */
 }
 
+p {
+  font-size: 1.2rem;
+  /* color: #555; */
+}
+
+/* Insights Section */
+.insights-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.insight-card {
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 25px;
+  width: 300px;
+  transition: transform 0.3s;
+  text-align: center;
+}
+
+.insight-card:hover {
+  transform: translateY(-5px);
+}
+
+.insight-card h3 {
+  font-size: 1.5rem;
+  color: #2d6a4f;
+}
+
+.insight-card p {
+  font-size: 1rem;
+  color: #555;
+  margin: 15px 0;
+}
+
+.insight-card button {
+  background: #34D399;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.insight-card button:hover {
+  background: #2d6a4f;
+  transform: scale(1.05);
+}
+
+/* Stats Section */
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card h3 {
+  font-size: 1.5rem;
+  color: #2d6a4f;
+}
+
+.stat-card p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Logout Button */
 .logout-button {
-  background-color: #d9534f;
+  background: #d9534f;
   color: white;
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
-  margin-top: 20px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s;
 }
 
 .logout-button:hover {
-  background-color: #c9302c;
+  background: #c9302c;
   transform: scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .insights-container, .stats-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .insight-card, .stat-card {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .insight-card, .stat-card {
+    width: 100%;
+  }
 }

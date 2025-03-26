@@ -11,15 +11,35 @@ from torchvision import models
 app = Flask(__name__)
 CORS(app)
 
-# Weather API Configuration
+# ---------------------------
+# 🌤️ Weather API Configuration
+# ---------------------------
 API_KEY = "ac8af87849969a01808224987992c61a"  
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
-# Upload directory for pest detection
+# ---------------------------
+# 📊 APEDA API Configuration
+# ---------------------------
+# APEDA_API = "https://apeda.gov.in/api/market-prices"
+
+# ---------------------------
+# 🌐 Mock Data
+# ---------------------------
+mock_data = [
+    {"commodity": "Rice", "year": "2024", "price": "₹3,200 per quintal", "region": "Punjab"},
+    {"commodity": "Wheat", "year": "2024", "price": "₹2,800 per quintal", "region": "Haryana"},
+    {"commodity": "Maize", "year": "2024", "price": "₹2,100 per quintal", "region": "Madhya Pradesh"},
+    {"commodity": "Sugarcane", "year": "2024", "price": "₹310 per quintal", "region": "Uttar Pradesh"},
+    {"commodity": "Cotton", "year": "2024", "price": "₹6,500 per quintal", "region": "Maharashtra"}
+]
+
+# ---------------------------
+# 🐞 Pest Detection Configuration
+# ---------------------------
+
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
 # ✅ Load Pre-trained Model (ResNet18)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = models.resnet18(pretrained=True)
@@ -145,9 +165,62 @@ def pest_detection():
 
     return jsonify({'prediction': prediction})
 
+# ---------------------------
+# 📊 APEDA API Endpoint (Real-time Market Prices)
+# ---------------------------
 
-# ---------------------------
-# ✅ Run the Flask Server
-# ---------------------------
+# @app.route('/market-prices', methods=['GET'])
+# def get_market_prices():
+    # commodity = request.args.get('commodity', 'rice')
+    # year = request.args.get('year', '2024')
+
+    # params = {
+    #     "commodity": commodity,
+    #     "year": year
+    # }
+
+    # try:
+    #     response = requests.get(APEDA_API, params=params)
+
+    #     if response.status_code != 200:
+    #         return jsonify({"error": "Failed to fetch market prices"}), response.status_code
+
+    #     data = response.json()
+
+    #     # Check if API returns empty or no records
+    #     if not data or 'records' not in data or len(data['records']) == 0:
+    #         return jsonify({"error": "No data available", "market_data": []}), 200
+
+    #     market_data = []
+    #     for record in data.get('records', []):
+    #         market_data.append({
+    #             "commodity": record.get("commodity", commodity),
+    #             "year": record.get("year", year),
+    #             "price": record.get("price", "N/A"),
+    #             "region": record.get("region", "Unknown")
+    #         })
+
+    #     return jsonify(market_data)
+
+    # except Exception as e:
+    #     print(f"Error: {e}")
+    #     return jsonify({"error": "Failed to fetch market data"}), 500
+
+@app.route('/market-prices', methods=['GET'])
+def get_market_data():
+    commodity = request.args.get('commodity', 'rice')
+    year = request.args.get('year', '2024')
+
+    # Filter mock data based on query parameters
+    filtered_data = [
+        item for item in mock_data
+        if (commodity in item["commodity"].lower() or commodity == '') and (year == item["year"] or year == '')
+    ]
+
+    if not filtered_data:
+        return jsonify({"error": "No data available", "market_data": []}), 200
+
+    return jsonify(filtered_data)
+
 if __name__ == '__main__':
     app.run(debug=True)

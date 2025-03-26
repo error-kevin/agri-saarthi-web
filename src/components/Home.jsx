@@ -51,7 +51,7 @@ const Home = () => {
             <p>Upload images to detect pests and get treatment suggestions.</p>
           </div>
 
-          <div className="feature-card" onClick={() => handleButtonClick("/market")}>
+          <div className="feature-card" onClick={() => handleButtonClick("/market-prices")}>
             <h3>📊 Market Prices</h3>
             <p>Get the latest crop prices and market trends.</p>
           </div>
