@@ -1,0 +1,19 @@
+/* Updated Icon Colors */
+.icon {
+    font-size: 50px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Color changes */
+.feature-card:nth-child(1) .icon {
+    color: #3498db; /* Blue for weather */
+}
+
+.feature-card:nth-child(2) .icon {
+    color: #2ecc71; /* Green for soil */
+}
+
+.feature-card:nth-child(3) .icon {
+    color: #f39c12; /* Orange for insights */
+}
