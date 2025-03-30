@@ -1,15 +1,57 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
-import ee
+import os
+from PIL import Image
+import torch
+import torchvision.transforms as transforms
+from torchvision import models
+from google.cloud import storage
 import functions_framework
 
 app = Flask(__name__)
 CORS(app)
 
-API_KEY = "ac8af87849969a01808224987992c61a"
+# ---------------------------
+# 🌤️ Weather API Configuration
+# ---------------------------
+API_KEY = "ac8af87849969a01808224987992c61a"  
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
+# ---------------------------
+# 📊 APEDA API Configuration
+# ---------------------------
+# APEDA_API = "https://apeda.gov.in/api/market-prices"
+
+# ---------------------------
+# 🌐 Mock Data
+# ---------------------------
+mock_data = [
+    {"commodity": "Rice", "year": "2024", "price": "₹3,200 per quintal", "region": "Punjab"},
+    {"commodity": "Wheat", "year": "2024", "price": "₹2,800 per quintal", "region": "Haryana"},
+    {"commodity": "Maize", "year": "2024", "price": "₹2,100 per quintal", "region": "Madhya Pradesh"},
+    {"commodity": "Sugarcane", "year": "2024", "price": "₹310 per quintal", "region": "Uttar Pradesh"},
+    {"commodity": "Cotton", "year": "2024", "price": "₹6,500 per quintal", "region": "Maharashtra"}
+]
+
+# ---------------------------
+# 🐞 Pest Detection Configuration
+# ---------------------------
+
+UPLOAD_FOLDER = 'uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+# ✅ Load Pre-trained Model (ResNet18)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT) # use weights instead of pretrained.
+model = model.to(device)
+model.eval()
+
+BUCKET_NAME = "agri-saarthi-pest-images"  
+
+# ---------------------------
+# 🌤️ Weather Data Endpoint
+# ---------------------------
 @app.route('/weather', methods=['GET'])
 def get_weather():
     lat = request.args.get('lat')
@@ -17,7 +59,7 @@ def get_weather():
 
     if not lat or not lon:
         return jsonify({"error": "Latitude and Longitude are required"}), 400
-    
+
     params = {
         "lat": lat,
         "lon": lon,
@@ -41,53 +83,73 @@ def get_weather():
 
     return jsonify(weather_info)
 
-#Soil data 
+# ---------------------------
+# 🐞 Pest/Disease Detection Endpoint (PyTorch)
+# ---------------------------
+def preprocess_image(image_path):
+    """ Preprocess image for PyTorch model inference """
+    transform = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    ])
 
-# Initialize Earth Engine (ensure authentication is done)
-PROJECT_ID = "agri-saarthi"  # Replace with your actual project ID
+    img = Image.open(image_path).convert("RGB")
+    img_tensor = transform(img).unsqueeze(0).to(device)
+    return img_tensor
 
-try:
-    ee.Initialize(project=PROJECT_ID)
-    print("Google Earth Engine Initialized Successfully!")
-except Exception as e:
-    print(f"Error initializing Earth Engine: {e}")
+@app.route('/pest-detection', methods=['POST'])
+def pest_detection():
+    """ Handle pest detection image upload """
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file provided'}), 400
 
-def get_soil_moisture(lat, lon):
+    file = request.files['file']
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+    file.save(file_path)
 
-    try:
-        ee.Initialize() #initialize earth engine inside of the function.
-        point = ee.Geometry.Point(lon, lat)
-        soil_data = ee.ImageCollection('NASA/SMAP/SPL4SMGP/007') \
-        .filterDate('2023-01-01', '2023-01-10') \
-        .filterBounds(point) \
-        .mean() \
-        .reduceRegion(ee.Reducer.mean(), point, 1000) \
-        .getInfo()
-        
-        # Extract relevant soil moisture values
-        filtered_data = {
-            "latitude": lat,
-            "longitude": lon,
-            "soil_moisture_surface": soil_data.get("sm_surface"),
-            "soil_moisture_rootzone": soil_data.get("sm_rootzone"),
-            "soil_moisture_profile": soil_data.get("sm_profile")
-        }
-        return filtered_data
-        print(get_soil_moisture(22.7196, 75.8577))  # Test with Indore location
+    # Upload to Cloud Storage
+    client = storage.Client()
+    bucket = client.bucket(BUCKET_NAME)
+    blob = bucket.blob(file.filename)
+    blob.upload_from_filename(file_path)
 
-    except Exception as e:
-        return str(e)
+    # Preprocess and predict (using Cloud Storage URL)
+    cloud_storage_url = f"gs://{BUCKET_NAME}/{file.filename}"
+    img_tensor = preprocess_image(cloud_storage_url)
+    with torch.no_grad():
+        outputs = model(img_tensor)
+        _, predicted = torch.max(outputs, 1)
 
+    # Map the class index to a human-readable label
+    labels = {0: "Healthy Plant", 1: "Pest Detected", 2: "Disease Detected"}
+    prediction = labels.get(predicted.item(), "Unknown")
 
-@app.route('/soil-moisture', methods=['GET'])
-def soil_moisture_api():
-    lat = request.args.get('lat', type=float)
-    lon = request.args.get('lon', type=float)
-    if lat is None or lon is None:
-        return jsonify({'error': 'Missing latitude or longitude'}), 400
+    # Delete from Cloud Storage
+    blob.delete()
+    os.remove(file_path) #remove local file.
 
-    moisture = get_soil_moisture(lat, lon)
-    return jsonify({'latitude': lat, 'longitude': lon, 'soil_moisture': moisture})
+    return jsonify({'prediction': prediction})
+
+# ---------------------------
+# 📊 APEDA API Endpoint (Real-time Market Prices)
+# ---------------------------
+
+@app.route('/market-prices', methods=['GET'])
+def get_market_data():
+    commodity = request.args.get('commodity', 'rice')
+    year = request.args.get('year', '2024')
+
+    # Filter mock data based on query parameters
+    filtered_data = [
+        item for item in mock_data
+        if (commodity in item["commodity"].lower() or commodity == '') and (year == item["year"] or year == '')
+    ]
+
+    if not filtered_data:
+        return jsonify({"error": "No data available", "market_data": []}), 200
+
+    return jsonify(filtered_data)
 
 @functions_framework.http
 def flask_app(request):

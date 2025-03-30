@@ -1,5 +1,9 @@
 Flask
 flask-cors
 requests
-earthengine-api
 functions-framework
+firebase-functions
+Pillow
+torch
+torchvision
+google-cloud-storage

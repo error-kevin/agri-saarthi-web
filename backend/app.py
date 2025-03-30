@@ -7,6 +7,7 @@ from PIL import Image
 import torch
 import torchvision.transforms as transforms
 from torchvision import models
+from torchvision.models import ResNet18_Weights  # ✅ Updated weights import
 
 app = Flask(__name__)
 CORS(app)
@@ -40,9 +41,10 @@ mock_data = [
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-# ✅ Load Pre-trained Model (ResNet18)
+
+# ✅ Load Pre-trained Model (Updated Syntax)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = models.resnet18(pretrained=True)
+model = models.resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)  # ✅ Updated weights
 model = model.to(device)
 model.eval()
 
