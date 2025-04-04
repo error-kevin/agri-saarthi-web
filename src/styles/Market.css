@@ -36,6 +36,7 @@
     justify-content: center;
     gap: 15px;
     margin-bottom: 30px;
+    min-width: 320px;
   }
   
   .market-page input {
@@ -44,7 +45,7 @@
     border-radius: 8px;
     font-size: 16px;
     outline: none;
-    width: 200px;
+    min-width: 320px;
   }
   
   .market-page button {
@@ -169,8 +170,5 @@
       gap: 10px;
     }
   
-    .market-page input, .market-page button {
-      width: 100%;
-    }
   }
   
