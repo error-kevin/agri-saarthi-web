@@ -45,7 +45,7 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;
     transition: 0.3s;
 }
 
@@ -183,7 +183,6 @@
     }
 
     .upload-section input, .upload-btn {
-        width: 100%;
         max-width: 100%;
     }
 

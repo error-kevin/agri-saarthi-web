@@ -2,6 +2,7 @@
 .about-container {
   text-align: center;
   padding: 60px 20px;
+  /* width: 100%; */
   background: linear-gradient(135deg, #f0f0f0, #ffffff);
   color: #333;
   min-height: 100vh;
@@ -50,7 +51,8 @@
   background: #ffffff;
   padding: 35px;
   border-radius: 15px;
-  width: 320px;
+  /* width: 100%; */
+  min-width: 320px;
   text-align: center;
   border: 1px solid #ddd;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -117,9 +119,9 @@
     gap: 20px;
   }
   
-  .team-member {
+  /* .team-member {
     width: 300px;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
@@ -128,9 +130,9 @@
     align-items: center;
   }
   
-  .team-member {
+  /* .team-member {
     width: 85%;
-  }
+  } */
 }
 
 /* Buy Me a Coffee Section */
