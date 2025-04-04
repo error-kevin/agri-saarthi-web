@@ -132,3 +132,36 @@
     width: 85%;
   }
 }
+
+/* Buy Me a Coffee Section */
+.buymeacoffee-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.bmc-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background-color: #ffdd00;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.bmc-link:hover {
+  background-color: #ffcc00;
+  transform: scale(1.1);
+}
+
+.bmc-logo {
+  width: 30px;
+  height: auto;
+  margin-right: 10px;
+}
