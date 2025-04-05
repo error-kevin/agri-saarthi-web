@@ -23,8 +23,8 @@ const teamMembers = [
     image: member2,
     github: "https://github.com/KhushiRaghuwanshi20",
     linkedin: "https://www.linkedin.com/in/khushi-raghuwanshi-494ba5330",
-    twitter: "https://twitter.com/member2",
-    buymeacoffee: "https://buymeacoffee.com/member2",
+    twitter: "https://x.com/Khushi_2095",
+    buymeacoffee: "https://buymeacoffee.com/khushiraghuwanshi_20",
   },
   {
     name: "Urvashi Sharma",
@@ -32,8 +32,8 @@ const teamMembers = [
     image: member3,
     github: "https://github.com/Urvashi-146",
     linkedin: "https://www.linkedin.com/in/urvashi-sharma0104",
-    twitter: "https://twitter.com/member3",
-    buymeacoffee: "https://buymeacoffee.com/member3",
+    twitter: "https://x.com/Urvashi_146",
+    buymeacoffee: "https://buymeacoffee.com/urvashi_146",
   },
 ];
 
