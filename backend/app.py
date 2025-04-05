@@ -87,6 +87,8 @@ def get_weather():
 # ---------------------------
 PROJECT_ID = "agri-saarthi"  # Replace with your actual project ID
 
+ee.Authenticate()
+
 try:
     ee.Initialize(project=PROJECT_ID)
     print("Google Earth Engine Initialized Successfully!")
