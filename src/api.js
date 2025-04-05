@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000",
-  // baseURL: "https://agri-saarthi-web.onrender.com", 
+  // baseURL: "http://localhost:5000",
+  baseURL: "https://agri-saarthi-web.onrender.com", 
   timeout: 5000,
   headers: { "Content-Type": "application/json" },
 });
