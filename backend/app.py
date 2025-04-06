@@ -86,7 +86,8 @@ def get_weather():
 # 🌱 Soil Moisture Data Endpoint
 # ---------------------------
 PROJECT_ID = "agri-saarthi"  # Replace with your actual project ID
-
+SERVICE_ACCOUNT = 'earth-engine-service@agri-saarthi.iam.gserviceaccount.com'
+KEY_FILE = '../backend/agri-saarthi-35d2338ce25d.json'
 
 try:
     ee.Initialize(project=PROJECT_ID)
