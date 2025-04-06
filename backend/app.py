@@ -3,6 +3,7 @@ from flask_cors import CORS
 import requests
 import ee  # Google Earth Engine
 import os
+import json
 from PIL import Image
 import torch
 import torchvision.transforms as transforms
@@ -86,7 +87,12 @@ def get_weather():
 # 🌱 Soil Moisture Data Endpoint
 # ---------------------------
 PROJECT_ID = "agri-saarthi"  # Replace with your actual project ID
+creds = os.getenv("GOOGLE_CREDENTIALS_JSON")
 
+if creds:
+    with open("service_account.json", "w") as f:
+        f.write(creds)
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "service_account.json"
 
 try:
     ee.Initialize(project=PROJECT_ID)
