@@ -90,9 +90,9 @@ PROJECT_ID = "agri-saarthi"  # Replace with your actual project ID
 creds = os.getenv("GOOGLE_CREDENTIALS_JSON")
 
 if creds:
-    with open("service_account.json", "w") as f:
+    with open("agri-saarthi-35d2338ce25d.json", "w") as f:
         f.write(creds)
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "service_account.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "agri-saarthi-35d2338ce25d.json"
 
 try:
     ee.Initialize(project=PROJECT_ID)
