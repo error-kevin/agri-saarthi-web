@@ -42,7 +42,7 @@ const Footer = () => {
       
       {/* Bottom Bar */}
       <div className="footer-bottom">
-        <p>© 2025 Agri-Saarthi. All Rights Reserved | Developed by Triosync</p>
+        <p>© 2026 Agri-Saarthi. All Rights Reserved | Developed by Triosync</p>
       </div>
     </footer>
   );

@@ -42,14 +42,12 @@ const About = () => {
     <div className="about-container">
       <h1>About</h1>
       <p>
-        We are a passionate team participating in the Google Solution Challenge, aiming to
-        create an AI-powered agricultural advisory system for small and marginal farmers.
+        Agriculture is the heart of our community, yet small farmers face unprecedented risks from climate change and market volatility. Our project, AgriSaarthi, is a social-tech initiative that provides hands-on digital skilling and real-time expert mentorship. We believe that by putting AI and smart sensors in the hands of every farmer, we can ensure food security and economic stability for all.
       </p>
 
       <h2>Our Mission</h2>
       <p>
-        Our goal is to empower farmers with AI-driven insights to improve their productivity
-        and decision-making.
+        To empower the global farming community by transforming traditional practices into smart, sustainable systems, ensuring that no farmer is left behind in the digital revolution.
       </p>
 
       <h2>Meet the Team</h2>

@@ -16,6 +16,7 @@ import Dashboard from "./components/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./components/Profile";
 import Market from "./components/Market";
+import NotFound from './NotFound';
 
 
 api.get("/api/hello")
@@ -91,6 +92,7 @@ function App() {
             </ProtectedRoute>
           } 
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>

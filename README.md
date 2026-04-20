@@ -1,81 +1,69 @@
-# AgriSaarthi - Empowering Farmers with AI
+# 🌱 AgriSaarthi: Cultivating a Sustainable Future
 
-**AgriSaarthi** is a mobile/web application designed to empower small and marginal farmers by providing personalized, AI-driven agricultural advisory, skill development resources, and market linkages. Addressing climate change impacts and resource constraints is at the core of AgriSaarthi's mission.
+[![Live Site](https://img.shields.io/badge/Live-AgriSaarthi-2e7d32?style=for-the-badge&logo=firebase)](https://agrisaarthi.web.app/)
+[![Hackathon](https://img.shields.io/badge/Track_2-Sustainability_&_Impact-orange?style=for-the-badge)](https://agrisaarthi.web.app/)
 
-## Key Features
+**AgriSaarthi** is an AI-powered ecosystem designed to bridge the digital divide for small and marginal farmers. By combining cutting-edge AI diagnostics with a physical-digital hybrid model (Agri-Tech Hubs), we empower farmers to combat climate change, improve soil health, and achieve economic stability.
 
-### 1. AI-Powered Crop Advisory
+## 🚀 Live Demo & Video
+- **Web App:** [agrisaarthi.web.app](https://agrisaarthi.web.app/)
+- **Functional Demo:** [Watch the Video on YouTube](https://drive.google.com/file/d/11jJzVJlVK2kLapSwBeAZQorNb5njEspV/view)
 
-* **Weather Forecasting & Alerts:**
-    * Integrates real-time weather data and AI-powered forecasting.
-    * Provides localized weather alerts (rainfall, temperature, humidity) to aid in activity planning.
-* **Soil Health Analysis:**
-    * Utilizes remote sensing and AI to analyze soil health from satellite imagery and user inputs.
-    * Offers recommendations for soil amendments and sustainable practices.
-* **Pest and Disease Detection:**
-    * Implements image recognition and machine learning for identifying pests and diseases through smartphone photos.
-    * Provides AI-driven prevention and treatment recommendations.
-* **Crop Selection & Planning:**
-    * Analyzes historical data, weather patterns, and soil conditions to recommend suitable crops and optimal planting schedules.
+---
 
-### 2. Skill Development & Training
+## 🌍 The Problem & Our Impact (Track 2)
+Small farmers face "The Information Gap"—climate unpredictability, soil degradation, and lack of technical skilling. AgriSaarthi addresses these by:
+- **Sustainability:** Reducing chemical waste through precise AI Pest Detection.
+- **Climate Action:** Real-time weather/soil data to prevent crop loss from extreme patterns.
+- **Social Impact:** Democratizing modern tools (Drones, IoT) via localized **Agri-Tech Hubs**.
 
-* **Digital Learning Modules:**
-    * Integrates video tutorials, interactive modules, and voice-based assistance.
-    * Covers topics like sustainable farming, water management, and modern technology usage.
-* **Localized Content:**
-    * Provides content in local languages for enhanced accessibility.
-* **"Ask an Expert" Feature:**
-    * Connects farmers with agricultural experts through in-app chat or voice calls.
-* **Agri-Tech Hub & Mobile Agri-Tech Van Integration:**
-    * Provides information on locations and schedules of these resources within the app.
+## ✨ Key Features
 
-### 3. Market Linkages & Financial Inclusion
+### 1. AI-Powered Diagnostics 🧠
+* **Pest & Disease Detection:** Upload crop photos for instant Machine Learning identification and organic treatment advice.
+* **Yield Prediction:** Deep learning analysis of historical and environmental data to estimate outputs.
+* **Soil Health Analysis:** Remote sensing integration to suggest sustainable amendments.
 
-* **Market Price Information:**
-    * Provides real-time market prices for crops, connecting farmers with potential buyers.
-* **Input Supplier Directory:**
-    * Creates a directory of reliable input suppliers (seeds, fertilizers, equipment).
-* **Financial Literacy & Access:**
-    * Integrates information on government schemes, loan options, and financial literacy resources.
-* **Farmer to Farmer Network:**
-    * Implements a forum for farmers to communicate, and share knowledge.
+### 2. The Agri-Tech Hub (Unique Social Solution) 🏢
+A unique "Phygital" (Physical + Digital) approach where farmers can:
+* Receive hands-on training on AI apps and smart irrigation.
+* Rent expensive tech like drones or smart sensors.
+* Access multi-lingual digital literacy modules.
 
-### 4. Data Collection & Analysis
+### 3. Market & Climate Intelligence 📊
+* **Real-time Mandi Rates:** Direct market linkage to ensure fair pricing.
+* **Hyper-local Weather:** Precision alerts to help plan activities and avoid daily "gambles."
 
-* **User-Generated Data:**
-    * Collects data on crop yields, soil conditions, and farming practices through the app.
-* **Data Analytics:**
-    * Uses data analytics to identify trends, patterns, and areas for improvement.
-* **Feedback Mechanism:**
-    * Implements a feedback mechanism to gather user input and improve the app's functionality.
+---
 
-## Technologies Used (Example - To be filled with real tech stack)
+## 🛠️ Technical Architecture
 
-* **Frontend:** React Native (Mobile), React.js (Web)
-* **Backend:** Node.js, Python (for AI/ML)
-* **Database:** PostgreSQL, MongoDB
-* **AI/ML:** TensorFlow, PyTorch, Scikit-learn
-* **Cloud Services:** AWS, Google Cloud Platform, or Azure.
-* **Mapping/GIS:** Leaflet, Google Maps API
+### **Frontend**
+- **React.js & CSS3:** Responsive, high-performance web interface.
+- **React Router:** For seamless single-page navigation and 404 handling.
 
+### **Backend & AI**
+- **Python (Flask):** Powering the AI processing engine and API logic.
+- **TensorFlow/PyTorch:** Used for pest recognition and yield prediction models.
 
-## Contributing
+### **Cloud & DevOps**
+- **Firebase Hosting:** Global CDN for lightning-fast frontend delivery.
+- **Firestore:** NoSQL database for real-time user and farm data.
+- **Firebase Authentication:** Secure login for personalized farmer dashboards.
 
-Contributions are welcome! Please follow these steps:
+---
 
-1.  Fork the repository.
-2.  Create a new branch for your feature or bug fix.
-3.  Make your changes and commit them.
-4.  Push your changes to your fork.
-5.  Submit a pull request.
-
-
-## Project Status
-
-* In Development
-
-## Contact
-
-* Triosync [Keshav Joshi, Khushi Raghuwanshi, Urvashi Sharma]
-* keshav123joshi@gmail.com
+## 📁 Project Structure
+```bash
+AGRI-SAARTHI-WEB
+├── build/             # Production-ready build deployed to Firebase
+├── public/            # Static assets and 404.html
+├── src/
+│   ├── assets/        # Project images and icons
+│   ├── components/    # Reusable UI components (Navbar, Footer, Hero)
+│   ├── styles/        # Global and modular CSS
+│   ├── App.js         # Main Application Logic & Routing
+│   ├── NotFound.js    # Custom 404 "Lost in the Fields" component
+│   └── firebase.js    # Firebase configuration
+├── Backend/           # Flask-based AI engine
+└── firebase.json      # Hosting & deployment configurations
