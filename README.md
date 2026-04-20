@@ -7,7 +7,7 @@
 
 ## 🚀 Live Demo & Video
 - **Web App:** [agrisaarthi.web.app](https://agrisaarthi.web.app/)
-- **Functional Demo:** [Watch the Video on YouTube](https://drive.google.com/file/d/11jJzVJlVK2kLapSwBeAZQorNb5njEspV/view)
+- **Functional Demo:** [Watch the Video](https://drive.google.com/file/d/11jJzVJlVK2kLapSwBeAZQorNb5njEspV/view)
 
 ---
 
